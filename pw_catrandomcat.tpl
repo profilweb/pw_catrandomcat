@@ -3,7 +3,7 @@
  *
  * @author    profilweb. <manu@profil-web.fr>
  * @copyright 2026 profil Web.
- * @link      https://github.com/profilweb/pw_homecategories The module's homepage
+ * @link      https://github.com/profilweb/pw_catrandomcat The module's homepage
  * @license   https://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *}
 
