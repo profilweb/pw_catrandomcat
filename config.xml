@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>pw_catrandomcat</name>
+    <displayName><![CDATA[PW Cat Random Cat]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[Display shuffle categories on category page.]]></description>
+    <author><![CDATA[Profil Web]]></author>
+    <tab><![CDATA[]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>
