@@ -217,27 +217,24 @@ class Pw_CatRandomCat extends Module implements WidgetInterface
      */
     private function getCategoryImageLink($idCategory)
     {
-        $idLang = (int) $this->context->language->id;
-        $category = new Category($idCategory, $idLang);
 
-        // 1. Vérifier si l'image physique existe
+        $context = Context::getContext();
+        $category = new Category($idCategory, $context->language->id);
+
         $imagePath = _PS_CAT_IMG_DIR_ . $category->id . '.jpg';
         if (!file_exists($imagePath)) {
             return false;
         }
 
-        // 2. Récupérer le domaine en HTTPS (forcé)
-        $protocol = 'https://';
-        $domain = $this->context->shop->domain;
-        $baseUri = __PS_BASE_URI__; // Chemin de base (ex: "/boutique/" si sous-dossier)
+        if (!empty($category->id_image)) {
+            return $context->link->getCatImageLink(
+                $category->link_rewrite,
+                $category->id,
+                'category_default'
+            );
+        }
 
-        // 3. Construire le chemin relatif standard PrestaShop
-        $relativePath = '/c/' . $category->id . '-category_default/' . $category->link_rewrite . '.jpg';
-
-        // 4. Assembler l'URL absolue
-        $absoluteUrl = $protocol . $domain . rtrim($baseUri, '/') . $relativePath;
-
-        return $absoluteUrl;
+        return false;
     }
 
     protected function getCacheId($name = null)
